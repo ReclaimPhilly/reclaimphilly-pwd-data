@@ -31,7 +31,7 @@ def remove_leading_zeroes_from_street(addresss=''):
 
 # ----- Execute application -----
 if len(sys.argv) != 3:
-	print("Usage: python scripts/fix_data.py <input_file> <output file>")
+	print("Usage: python fix_data.py <input_file> <output file>")
 	print("\t<input file>: Table export of vacant properties (CSV format)")
 	print("\t<output file>: Fixed version of the input file (CSV format)")
 	sys.exit()
