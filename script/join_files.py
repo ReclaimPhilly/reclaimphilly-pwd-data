@@ -25,8 +25,11 @@ for input_file_path in input_files:
 	input_file = open(input_file_path, 'r')
 
 	if not applied_header_line: # skip first line, with header row, after written once
-		header_line = input_file.readline() 
-		output_file.write(header_line)
+		applied_header_line = True
+		output_file.write(input_file.readline())
+	else:
+		input_file.readline()
+
 	for line in input_file:
 		output_file.write(line)
 
