@@ -17,7 +17,7 @@ orig_file = open(orig_file_name, 'r')
 
 line_count = 1
 file_number = 1
-dest_file = open(dest_dir_name + '/' + str(file_number) + '.csv, 'w')
+dest_file = open(dest_dir_name + '/' + str(file_number) + '.csv', 'w')
 
 # Put the column headers in the file
 column_header_line = orig_file.readline()
