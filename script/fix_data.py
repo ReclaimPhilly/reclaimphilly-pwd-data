@@ -2,7 +2,7 @@ import sys
 import re
 
 GROUPED_ADDRESS_REGEX = re.compile(r'^(\d+)-\d*\s+(.*)')
-LEADING_ADDRESS_REGEX = re.compile(r'(.*)\s0+(\d+th.*)', re.IGNORECASE)
+LEADING_ADDRESS_REGEX = re.compile(r'(.*)\s0+(\d+(?:th|st|nd|rd).*)', re.IGNORECASE)
  
 def make_address_singular(address=''):
 	fixed_address = address
@@ -40,9 +40,6 @@ orig_file = open(sys.argv[1], 'r')
 mod_file = open(sys.argv[2], 'w')
 
 skipped_first_line = False
-num = 1
-
-
 
 for line in orig_file.readlines():
     # Skip over the header line
