@@ -1,1 +1,4 @@
 requests
+
+##### MySQL requirements -- Uncomment when using MySQL
+#mysql-python
