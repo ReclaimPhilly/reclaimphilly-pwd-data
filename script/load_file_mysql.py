@@ -1,14 +1,17 @@
 import sys
-import sqlite3
+import MySQLdb
 
 # Get command line arguments
-if len(sys.argv) != 3:
-	print("Usage: python load_file_sqlite.py <PWD CSV file path> <DB file path>")
-	print("Description: Loads data from a geocoded PWD CSV into a Reclaim Philly SQLite database")
+if len(sys.argv) != 6:
+	print("Usage: python load_file_mysql.py <PWD CSV file path> <DB host URL> <DB user ID> <DB user password> <DB name>")
+	print("Description: Loads date from a geocoded PWD CSV into a Reclaim Philly MySQL database")
 	sys.exit()
 
 input_file_path = sys.argv[1]
-db_path = sys.argv[2]
+host = sys.argv[2]
+user = sys.argv[3]
+password = sys.argv[4]
+db_name = sys.argv[5]
 
 
 # Open the input file, skip the first line (header row)
@@ -16,7 +19,7 @@ input_file = open(input_file_path, 'r')
 input_file.readline()
 
 # Connect to the database
-db_connection = sqlite3.connect(db_path)
+db_connection = MySQLdb.connect(host=host, user=user, passwd=password, db=db_name)
 db_cursor = db_connection.cursor()
 
 # Iterate through the records and get the necessary parts, put into tuples
